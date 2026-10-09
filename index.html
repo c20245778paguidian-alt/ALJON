@@ -1,136 +1,74 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aljon Paguidian | Portfolio</title>
+
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <style type="text/tailwindcss">
+        @custom-variant dark (&:where(.dark, .dark *));
+    </style>
 </head>
 
-<body class="min-h-screen bg-[#f5efe7] bg-cover bg-center bg-no-repeat text-slate-800 antialiased selection:bg-pink-500 selection:text-white transition-colors duration-300 dark:text-slate-100 dark:bg-[#1f2937]" style="background-image: linear-gradient(rgba(245,239,231,0.82), rgba(245,239,231,0.82)), url('https://images.pexels.com/photos/39201715/pexels-photo-39201715.jpeg');">
+<body class="text-center bg-white text-black dark:bg-gray-900 dark:text-white">
 
-  
-    <header class="sticky top-0 z-50 border-b border-slate-200/60 bg-white/70 backdrop-blur-md transition-colors duration-300 dark:border-slate-800 dark:bg-slate-900/70">
-        <nav class="max-w-6xl mx-auto px-6 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
-            
-            <a href="#" class="text-xl font-bold tracking-tight text-slate-900 dark:text-white hover:text-pink-600 dark:hover:text-pink-400 transition duration-300">
-                @jaysonnet
-            </a>
+    <h1 class="text-4xl font-bold underline text-red-700 mt-8">
+        Aljon Paguidian
+    </h1>
 
-            <div class="flex items-center gap-6">
-                <ul class="flex gap-6 font-medium text-sm text-slate-600 dark:text-slate-300">
-                    <li>
-                        <a href="#projects" class="hover:text-pink-600 dark:hover:text-pink-400 transition duration-300">
-                            Projects
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#services" class="hover:text-pink-600 dark:hover:text-pink-400 transition duration-300">
-                            Services
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#contact" class="hover:text-pink-600 dark:hover:text-pink-400 transition duration-300">
-                            Contact
-                        </a>
-                    </li>
-                </ul>
+    <button id="Toggle" class="mt-5 bg-black text-white px-6 py-3 rounded-lg dark:bg-white dark:text-black">
+        Toggle
+    </button>
 
-                <button id="switch" class="px-4 py-1.5 text-xs font-semibold bg-slate-900 text-white dark:bg-pink-600 dark:hover:bg-pink-500 rounded-full hover:bg-pink-600 transition duration-300 shadow-sm cursor-pointer">
-                    Switch Mode
-                </button>
-            </div>
+    <nav class="flex justify-between items-center mx-8 mt-8">
+        <span class="font-bold">@aljonpaguidian</span>
 
-        </nav>
-    </header>
+        <ul class="flex gap-5 list-none">
+            <li><a href="#projects" class="hover:text-pink-500">Projects</a></li>
+            <li><a href="#services" class="hover:text-pink-500">Services</a></li>
+            <li><a href="#contact" class="hover:text-pink-500">Contact</a></li>
+        </ul>
+    </nav>
 
-   
-    <section class="max-w-4xl mx-auto text-center px-6 pt-20 pb-12">
-        <span class="text-xs font-bold uppercase tracking-widest text-pink-600 bg-pink-100/80 dark:bg-pink-950/60 dark:text-pink-300 px-3.5 py-1.5 rounded-full border border-pink-200 dark:border-pink-800">
-            My Portfolio
-        </span>
-        <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 dark:text-white tracking-tight mt-4 mb-4">
-            ALJON PAGUIDIAN
-        </h1>
-        <p class="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
-            
-        </p>
-    </section>
+    <!-- Content -->
+    <main class="flex flex-wrap gap-5 m-8">
 
-   
-    <main class="max-w-6xl mx-auto px-6 pb-24 grid grid-cols-1 md:grid-cols-3 gap-8">
-
-       
-        <section id="projects" class="bg-[#f2e7d0] dark:bg-[#f2e7d0] backdrop-blur-sm p-8 rounded-[20px] border border-[#d6c39a] dark:border-[#d6c39a] shadow-sm hover:shadow-md transition duration-300 flex flex-col justify-between">
-            <div>
-               
-                <h2 class="text-[2.1rem] font-bold text-[#4b2d1a] dark:text-[#4b2d1a] mb-3">
-                    My Projects
-                </h2>
-                <p class="text-[#4b2d1a]/85 dark:text-[#4b2d1a]/85 leading-relaxed text-[1.05rem]">
-                    Personal portfolio, payroll system, company website, startup website, and compliance monitoring system.
-                </p>
-            </div>
-            <div class="mt-6 pt-4 border-t border-[#d6c39a] dark:border-[#d6c39a] flex flex-wrap gap-2">
-                <span class="text-xs font-medium bg-[#f7f0e1] text-[#4b2d1a] px-3 py-1.5 rounded-md border border-[#d6c39a]">Payroll</span>
-                <span class="text-xs font-medium bg-[#f7f0e1] text-[#4b2d1a] px-3 py-1.5 rounded-md border border-[#d6c39a]">Websites</span>
-                <span class="text-xs font-medium bg-[#f7f0e1] text-[#4b2d1a] px-3 py-1.5 rounded-md border border-[#d6c39a]">Compliance</span>
-            </div>
+        <section id="projects" class="flex-1 min-w-[250px] p-5 border bg-white-500 dark:bg-gray-800">
+            <h2 class="text-2xl font-bold text-pink-500 mb-4">My Projects</h2>
+            <p>Personal portfolio, payroll system, company website,
+                startup website, and compliance monitoring system.</p>
         </section>
 
-        
-        <section id="services" class="bg-[#dfeaf4] dark:bg-[#dfeaf4] backdrop-blur-sm p-8 rounded-[20px] border border-[#b9d1e3] dark:border-[#b9d1e3] shadow-sm hover:shadow-md transition duration-300 flex flex-col justify-between">
-            <div>
-              
-                <h2 class="text-[2.1rem] font-bold text-[#2d3f5d] dark:text-[#2d3f5d] mb-3">
-                    My Services
-                </h2>
-                <p class="text-[#2d3f5d]/85 dark:text-[#2d3f5d]/85 leading-relaxed text-[1.05rem]">
-                    Website Creation, System Creation, AI Automation, Database Management, Project Management, and Systems Analysis.
-                </p>
-            </div>
-            <div class="mt-6 pt-4 border-t border-[#b9d1e3] dark:border-[#b9d1e3] flex flex-wrap gap-2">
-                <span class="text-xs font-medium bg-[#edf5fd] text-[#2d3f5d] px-3 py-1.5 rounded-md border border-[#b9d1e3]">AI</span>
-                <span class="text-xs font-medium bg-[#edf5fd] text-[#2d3f5d] px-3 py-1.5 rounded-md border border-[#b9d1e3]">Database</span>
-                <span class="text-xs font-medium bg-[#edf5fd] text-[#2d3f5d] px-3 py-1.5 rounded-md border border-[#b9d1e3]">Analysis</span>
-            </div>
+        <section id="services" class="flex-1 min-w-[250px] p-5 border bg-white-500 dark:bg-gray-800">
+            <h2 class="text-2xl font-bold text-pink-500 mb-4">My Services</h2>
+            <p>Website Creation, System Creation, AI Automation,
+                Database Management, Project Management, Systems Analyst.</p>
         </section>
 
-        
-        <section id="contact" class="bg-rose-50/80 dark:bg-rose-950/20 backdrop-blur-sm p-8 rounded-2xl border border-rose-200/60 dark:border-rose-800/40 shadow-sm hover:shadow-md transition duration-300">
-           
-            <h2 class="text-2xl font-bold text-rose-950 dark:text-rose-100 mb-6">
+        <section id="contact"
+            class="flex-1 min-w-[250px] p-5 border bg-white text-black dark:bg-gray-800 dark:text-white">
+            <h2 class="text-2xl font-bold text-pink-500 mb-4">
                 Let's build together!
             </h2>
 
-            <form action="#" class="flex flex-col gap-4 text-left">
-                <div>
-                    <label for="name" class="block text-xs font-semibold uppercase tracking-wider text-rose-900 dark:text-rose-200 mb-1">
-                        Name
-                    </label>
-                    <input type="text" id="name" name="name" required placeholder="John Doe"
-                        class="w-full border border-rose-200 dark:border-rose-800/60 bg-white/90 dark:bg-slate-900 text-slate-900 dark:text-white rounded-lg p-3 text-sm focus:outline-none focus:ring-2 focus:ring-rose-500 transition">
-                </div>
+            <form class="flex flex-col gap-3">
+                <label for="name">Name</label>
+                <input id="name" type="text" placeholder="Your name" required
+                    class="border rounded p-3 bg-white text-black">
 
-                <div>
-                    <label for="email" class="block text-xs font-semibold uppercase tracking-wider text-rose-900 dark:text-rose-200 mb-1">
-                        Email
-                    </label>
-                    <input type="email" id="email" name="email" required placeholder="you@example.com"
-                        class="w-full border border-rose-200 dark:border-rose-800/60 bg-white/90 dark:bg-slate-900 text-slate-900 dark:text-white rounded-lg p-3 text-sm focus:outline-none focus:ring-2 focus:ring-rose-500 transition">
-                </div>
+                <label for="email">Email</label>
+                <input id="email" type="email" placeholder="Your email" required
+                    class="border rounded p-3 bg-white text-black">
 
-                <div>
-                    <label for="message" class="block text-xs font-semibold uppercase tracking-wider text-rose-900 dark:text-rose-200 mb-1">
-                        Message
-                    </label>
-                    <textarea id="message" name="message" rows="4" required placeholder="How can I help you?"
-                        class="w-full border border-rose-200 dark:border-rose-800/60 bg-white/90 dark:bg-slate-900 text-slate-900 dark:text-white rounded-lg p-3 text-sm focus:outline-none focus:ring-2 focus:ring-rose-500 transition resize-none"></textarea>
-                </div>
+                <label for="message">Message</label>
+                <textarea id="message" rows="4" placeholder="Your message" required
+                    class="border rounded p-3 bg-white text-black"></textarea>
 
                 <button type="submit"
-                    class="w-full bg-rose-600 hover:bg-rose-700 text-white font-medium py-3 rounded-lg transition duration-300 shadow-md active:scale-[0.98] cursor-pointer">
+                    class="bg-black text-white p-3 rounded-lg hover:bg-pink-400 dark:bg-white dark:text-black">
                     Send Message
                 </button>
             </form>
@@ -138,16 +76,11 @@
 
     </main>
 
-   
-    <footer class="border-t border-slate-200/60 dark:border-slate-800 text-center py-6 text-sm text-slate-500 dark:text-slate-400 bg-white/40 dark:bg-slate-900/40 backdrop-blur-md">
-        © 2026 Aljon Paguidian. All rights reserved.
-    </footer>
-
-   
     <script>
-        const switchBtn = document.getElementById('switch');
-        switchBtn.addEventListener('click', () => {
-            document.documentElement.classList.toggle('dark');
+        const toggleButton = document.getElementById("Toggle");
+        const html = document.querySelector("html");
+        toggleButton.addEventListener("click", () => {
+            html.classList.toggle("dark");
         });
     </script>
 
