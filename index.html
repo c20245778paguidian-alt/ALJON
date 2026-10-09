@@ -1,80 +1,143 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aljon Paguidian | Portfolio</title>
-
+    
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-
     <style type="text/tailwindcss">
-        @custom-variant dark (&:where(.dark, .dark *));
-    </style>
+    @custom-variant dark (&:where(.dark, .dark *));
+
+    @layer components {
+        /* 60% DOMINANT / BASE: Main Layout, Cards & Containers */
+        .bg-dominant {
+            @apply bg-slate-50 text-slate-900 border-4 border-black dark:bg-slate-900 dark:text-slate-100 dark:border-white;
+        }
+
+        /* 30% SECONDARY / STRUCTURE: Structural Elements, Headers & Cards */
+        .bg-secondary-surface {
+            @apply bg-slate-200 text-slate-900 border-4 border-black dark:bg-slate-800 dark:text-slate-100 dark:border-white;
+        }
+
+        /* 10% ACCENT: Primary CTA Button (Red) */
+        .btn-primary {
+            @apply px-6 py-3 bg-red-600 text-white font-black uppercase tracking-wider border-4 border-black transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:bg-yellow-400 hover:text-black active:translate-x-0 active:translate-y-0 active:shadow-none dark:bg-red-600 dark:text-white dark:border-white dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] dark:hover:bg-yellow-400 dark:hover:text-black;
+        }
+
+        /* 10% ACCENT: Secondary Action Button (Yellow) */
+        .btn-secondary {
+            @apply px-6 py-3 bg-yellow-400 text-black font-black uppercase tracking-wider border-4 border-black transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:bg-white active:translate-x-0 active:translate-y-0 active:shadow-none dark:border-white dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] dark:hover:bg-white;
+        }
+
+        /* 10% ACCENT: Accent / Special Action Button (White) */
+        .btn-accent {
+            @apply px-6 py-3 bg-white text-black font-black uppercase tracking-wider border-4 border-black transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:bg-yellow-400 active:translate-x-0 active:translate-y-0 active:shadow-none dark:bg-slate-900 dark:text-white dark:border-white dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] dark:hover:bg-yellow-400 dark:hover:text-black;
+        }
+    }
+</style>
 </head>
 
-<body class="text-center bg-white text-black dark:bg-gray-900 dark:text-white">
+<body class="min-h-screen text-black bg-[repeating-linear-gradient(-45deg,#ef4444,#ef4444_25px,#facc15_25px,#facc15_50px)] dark:bg-[repeating-linear-gradient(-45deg,#020617,#020617_25px,#0f172a_25px,#0f172a_50px)] dark:text-white font-sans transition-colors duration-200">
 
-    <h1 class="text-4xl font-bold underline text-red-700 mt-8">
-        Aljon Paguidian
-    </h1>
+    <!-- Top Navigation & Header Controls -->
+    <header class="max-w-6xl mx-auto pt-8 px-6 flex justify-between items-center">
+        <!-- Structural Box Header -->
+        <div class="bg-white dark:bg-slate-900 border-4 border-black dark:border-white p-3 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] dark:shadow-[6px_6px_0px_0px_rgba(255,255,255,1)]">
+            <h1 class="text-3xl font-black uppercase tracking-tighter">
+                Aljon <span class="bg-yellow-400 text-black px-1">Paguidian</span>
+            </h1>
+        </div>
 
-    <button id="Toggle" class="mt-5 bg-black text-white px-6 py-3 rounded-lg dark:bg-white dark:text-black">
-        Toggle
-    </button>
+        <button id="Toggle" class="btn-primary">
+            Toggle
+        </button>
+    </header>
 
-    <nav class="flex justify-between items-center mx-8 mt-8">
-        <span class="font-bold">@aljonpaguidian</span>
+    <nav class="max-w-6xl mx-auto my-8 mx-6 bg-white dark:bg-slate-900 border-4 border-black dark:border-white p-4 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_0px_rgba(255,255,255,1)] flex justify-between items-center">
+        <span class="font-black text-lg tracking-widest bg-red-600 text-white dark:bg-white dark:text-black px-3 py-1 uppercase">@aljon</span>
 
-        <ul class="flex gap-5 list-none">
-            <li><a href="#projects" class="hover:text-pink-500">Projects</a></li>
-            <li><a href="#services" class="hover:text-pink-500">Services</a></li>
-            <li><a href="#contact" class="hover:text-pink-500">Contact</a></li>
+        <ul class="flex gap-6 font-black uppercase text-sm tracking-wider">
+            <li><a href="#projects" class="hover:bg-yellow-400 hover:text-black p-1 transition-all">Projects</a></li>
+            <li><a href="#services" class="hover:bg-yellow-400 hover:text-black p-1 transition-all">Services</a></li>
+            <li><a href="#contact" class="hover:bg-yellow-400 hover:text-black p-1 transition-all">Contact</a></li>
         </ul>
     </nav>
 
-    <!-- Content -->
-    <main class="flex flex-wrap gap-5 m-8">
+    <!-- Main Content Grid -->
+    <main class="max-w-6xl mx-auto px-6 mb-12 grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
 
-        <section id="projects" class="flex-1 min-w-[250px] p-5 border bg-white-500 dark:bg-gray-800">
-            <h2 class="text-2xl font-bold text-pink-500 mb-4">My Projects</h2>
-            <p>Personal portfolio, payroll system, company website,
-                startup website, and compliance monitoring system.</p>
+        <!-- Projects Card (Red) -->
+        <section id="projects" class="bg-red-600 text-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] flex flex-col justify-between">
+            <div>
+                <h2 class="text-2xl font-black uppercase tracking-tight bg-black text-white p-2 mb-4 inline-block">
+                    My Projects
+                </h2>
+                <p class="font-bold text-sm leading-relaxed uppercase">
+                    Personal portfolio, payroll system, company website, startup website, and compliance monitoring system.
+                </p>
+            </div>
+            <div class="mt-6">
+                <button class="btn-secondary w-full text-center">View Projects</button>
+            </div>
         </section>
 
-        <section id="services" class="flex-1 min-w-[250px] p-5 border bg-white-500 dark:bg-gray-800">
-            <h2 class="text-2xl font-bold text-pink-500 mb-4">My Services</h2>
-            <p>Website Creation, System Creation, AI Automation,
-                Database Management, Project Management, Systems Analyst.</p>
+        <!-- Services Card (Yellow) -->
+        <section id="services" class="bg-yellow-400 text-black border-4 border-black dark:border-white p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_0px_rgba(255,255,255,1)] flex flex-col justify-between">
+            <div>
+                <h2 class="text-2xl font-black uppercase tracking-tight bg-red-600 text-white p-2 mb-4 inline-block border-2 border-black">
+                    My Services
+                </h2>
+                <p class="font-bold text-sm leading-relaxed uppercase text-black">
+                    Website Creation, System Creation, AI Automation, Database Management, Project Management, Systems Analyst.
+                </p>
+            </div>
+            <div class="mt-6">
+                <button class="btn-primary w-full text-center">Get Services</button>
+            </div>
         </section>
 
-        <section id="contact"
-            class="flex-1 min-w-[250px] p-5 border bg-white text-black dark:bg-gray-800 dark:text-white">
-            <h2 class="text-2xl font-bold text-pink-500 mb-4">
-                Let's build together!
+        <!-- Contact Form Card (White) -->
+        <section id="contact" class="bg-white dark:bg-slate-900 border-4 border-black dark:border-white p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_0px_rgba(255,255,255,1)]">
+            <h2 class="text-2xl font-black uppercase tracking-tight bg-red-600 text-white dark:bg-white dark:text-black p-2 mb-4 inline-block">
+                Let's Build!
             </h2>
 
-            <form class="flex flex-col gap-3">
-                <label for="name">Name</label>
-                <input id="name" type="text" placeholder="Your name" required
-                    class="border rounded p-3 bg-white text-black">
+            <form class="flex flex-col gap-4">
+                <div>
+                    <label for="name" class="block font-black text-xs uppercase tracking-wider mb-1">Name</label>
+                    <input id="name" type="text" placeholder="ENTER YOUR NAME" required
+                        class="w-full border-4 border-black dark:border-white p-3 font-bold text-sm bg-white dark:bg-slate-800 text-black dark:text-white focus:bg-yellow-400 focus:text-black focus:outline-none uppercase">
+                </div>
 
-                <label for="email">Email</label>
-                <input id="email" type="email" placeholder="Your email" required
-                    class="border rounded p-3 bg-white text-black">
+                <div>
+                    <label for="email" class="block font-black text-xs uppercase tracking-wider mb-1">Email</label>
+                    <input id="email" type="email" placeholder="ENTER YOUR EMAIL" required
+                        class="w-full border-4 border-black dark:border-white p-3 font-bold text-sm bg-white dark:bg-slate-800 text-black dark:text-white focus:bg-yellow-400 focus:text-black focus:outline-none uppercase">
+                </div>
 
-                <label for="message">Message</label>
-                <textarea id="message" rows="4" placeholder="Your message" required
-                    class="border rounded p-3 bg-white text-black"></textarea>
+                <div>
+                    <label for="message" class="block font-black text-xs uppercase tracking-wider mb-1">Message</label>
+                    <textarea id="message" rows="3" placeholder="YOUR MESSAGE..." required
+                        class="w-full border-4 border-black dark:border-white p-3 font-bold text-sm bg-white dark:bg-slate-800 text-black dark:text-white focus:bg-yellow-400 focus:text-black focus:outline-none uppercase"></textarea>
+                </div>
 
-                <button type="submit"
-                    class="bg-black text-white p-3 rounded-lg hover:bg-pink-400 dark:bg-white dark:text-black">
-                    Send Message
+                <button type="submit" class="btn-primary w-full mt-2">
+                    Submit
                 </button>
             </form>
         </section>
 
     </main>
+
+    <!-- Footer -->
+    <footer class="max-w-6xl mx-auto my-8 px-6">
+        <div class="bg-white dark:bg-slate-900 border-4 border-black dark:border-white p-4 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] dark:shadow-[6px_6px_0px_0px_rgba(255,255,255,1)] text-center">
+            <p class="font-black text-xs uppercase tracking-widest">
+                © Aljon paguidian (<span class="bg-yellow-400 text-black px-1">@aljon</span>). ALL RIGHTS RESERVED.
+            </p>
+        </div>
+    </footer>
 
     <script>
         const toggleButton = document.getElementById("Toggle");
