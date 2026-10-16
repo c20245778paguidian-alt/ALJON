@@ -1,66 +1,62 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aljon Paguidian | Portfolio</title>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+
     <style type="text/tailwindcss">
-    @custom-variant dark (&:where(.dark, .dark *));
+        @custom-variant dark (&:where(.dark, .dark *));
 
-    @layer components {
-        /* 60% DOMINANT / BASE: Main Layout, Cards & Containers */
-        .bg-dominant {
-            @apply bg-slate-50 text-slate-900 border-4 border-black dark:bg-slate-900 dark:text-slate-100 dark:border-white;
-        }
+        @layer components {
+            .btn-primary {
+                @apply px-6 py-3 bg-red-600 text-white font-black uppercase tracking-wider border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:bg-red-600 dark:text-white dark:border-white dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)];
+            }
 
-        /* 30% SECONDARY / STRUCTURE: Structural Elements, Headers & Cards */
-        .bg-secondary-surface {
-            @apply bg-slate-200 text-slate-900 border-4 border-black dark:bg-slate-800 dark:text-slate-100 dark:border-white;
-        }
+            .btn-secondary {
+                @apply px-6 py-3 bg-yellow-400 text-black font-black uppercase tracking-wider border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:border-white dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)];
+            }
 
-        /* 10% ACCENT: Primary CTA Button (Red) */
-        .btn-primary {
-            @apply px-6 py-3 bg-red-600 text-white font-black uppercase tracking-wider border-4 border-black transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:bg-yellow-400 hover:text-black active:translate-x-0 active:translate-y-0 active:shadow-none dark:bg-red-600 dark:text-white dark:border-white dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] dark:hover:bg-yellow-400 dark:hover:text-black;
+            .btn-accent {
+                @apply px-6 py-3 bg-white text-black font-black uppercase tracking-wider border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:bg-slate-900 dark:text-white dark:border-white dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)];
+            }
         }
-
-        /* 10% ACCENT: Secondary Action Button (Yellow) */
-        .btn-secondary {
-            @apply px-6 py-3 bg-yellow-400 text-black font-black uppercase tracking-wider border-4 border-black transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:bg-white active:translate-x-0 active:translate-y-0 active:shadow-none dark:border-white dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] dark:hover:bg-white;
-        }
-
-        /* 10% ACCENT: Accent / Special Action Button (White) */
-        .btn-accent {
-            @apply px-6 py-3 bg-white text-black font-black uppercase tracking-wider border-4 border-black transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:bg-yellow-400 active:translate-x-0 active:translate-y-0 active:shadow-none dark:bg-slate-900 dark:text-white dark:border-white dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] dark:hover:bg-yellow-400 dark:hover:text-black;
-        }
-    }
-</style>
+    </style>
 </head>
 
-<body class="min-h-screen text-black bg-[repeating-linear-gradient(-45deg,#ef4444,#ef4444_25px,#facc15_25px,#facc15_50px)] dark:bg-[repeating-linear-gradient(-45deg,#020617,#020617_25px,#0f172a_25px,#0f172a_50px)] dark:text-white font-sans transition-colors duration-200">
+<body class="min-h-screen text-black bg-[repeating-linear-gradient(-45deg,#ef4444,#ef4444_25px,#facc15_25px,#facc15_50px)] dark:bg-[repeating-linear-gradient(-45deg,#020617,#020617_25px,#0f172a_25px,#0f172a_50px)] dark:text-white font-sans">
 
     <!-- Top Navigation & Header Controls -->
     <header class="max-w-6xl mx-auto pt-8 px-6 flex justify-between items-center">
         <!-- Structural Box Header -->
-        <div class="bg-white dark:bg-slate-900 border-4 border-black dark:border-white p-3 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] dark:shadow-[6px_6px_0px_0px_rgba(255,255,255,1)]">
+        <div class="header-box bg-white dark:bg-slate-900 border-4 border-black dark:border-white p-3 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] dark:shadow-[6px_6px_0px_0px_rgba(255,255,255,1)]">
             <h1 class="text-3xl font-black uppercase tracking-tighter">
                 Aljon <span class="bg-yellow-400 text-black px-1">Paguidian</span>
             </h1>
         </div>
 
-        <button id="Toggle" class="btn-primary">
-            Toggle
-        </button>
+        <div class="flex gap-4">
+            <button id="Replay" class="btn-secondary">
+                Replay
+            </button>
+            <button id="Toggle" class="btn-primary inline-block">
+                Toggle
+            </button>
+        </div>
     </header>
 
     <nav class="max-w-6xl mx-auto my-8 mx-6 bg-white dark:bg-slate-900 border-4 border-black dark:border-white p-4 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_0px_rgba(255,255,255,1)] flex justify-between items-center">
         <span class="font-black text-lg tracking-widest bg-red-600 text-white dark:bg-white dark:text-black px-3 py-1 uppercase">@aljon</span>
 
         <ul class="flex gap-6 font-black uppercase text-sm tracking-wider">
-            <li><a href="#projects" class="hover:bg-yellow-400 hover:text-black p-1 transition-all">Projects</a></li>
-            <li><a href="#services" class="hover:bg-yellow-400 hover:text-black p-1 transition-all">Services</a></li>
-            <li><a href="#contact" class="hover:bg-yellow-400 hover:text-black p-1 transition-all">Contact</a></li>
+            <li><a href="#projects" class="nav-link p-1">Projects</a></li>
+            <li><a href="#services" class="nav-link p-1">Services</a></li>
+            <li><a href="#physics" class="nav-link p-1">Physics</a></li>
+            <li><a href="#contact" class="nav-link p-1">Contact</a></li>
         </ul>
     </nav>
 
@@ -68,7 +64,7 @@
     <main class="max-w-6xl mx-auto px-6 mb-12 grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
 
         <!-- Projects Card (Red) -->
-        <section id="projects" class="bg-red-600 text-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] flex flex-col justify-between">
+        <section id="projects" class="card bg-red-600 text-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] flex flex-col justify-between">
             <div>
                 <h2 class="text-2xl font-black uppercase tracking-tight bg-black text-white p-2 mb-4 inline-block">
                     My Projects
@@ -83,7 +79,7 @@
         </section>
 
         <!-- Services Card (Yellow) -->
-        <section id="services" class="bg-yellow-400 text-black border-4 border-black dark:border-white p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_0px_rgba(255,255,255,1)] flex flex-col justify-between">
+        <section id="services" class="card bg-yellow-400 text-black border-4 border-black dark:border-white p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_0px_rgba(255,255,255,1)] flex flex-col justify-between">
             <div>
                 <h2 class="text-2xl font-black uppercase tracking-tight bg-red-600 text-white p-2 mb-4 inline-block border-2 border-black">
                     My Services
@@ -98,7 +94,7 @@
         </section>
 
         <!-- Contact Form Card (White) -->
-        <section id="contact" class="bg-white dark:bg-slate-900 border-4 border-black dark:border-white p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_0px_rgba(255,255,255,1)]">
+        <section id="contact" class="card bg-white dark:bg-slate-900 border-4 border-black dark:border-white p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_0px_rgba(255,255,255,1)]">
             <h2 class="text-2xl font-black uppercase tracking-tight bg-red-600 text-white dark:bg-white dark:text-black p-2 mb-4 inline-block">
                 Let's Build!
             </h2>
@@ -107,19 +103,19 @@
                 <div>
                     <label for="name" class="block font-black text-xs uppercase tracking-wider mb-1">Name</label>
                     <input id="name" type="text" placeholder="ENTER YOUR NAME" required
-                        class="w-full border-4 border-black dark:border-white p-3 font-bold text-sm bg-white dark:bg-slate-800 text-black dark:text-white focus:bg-yellow-400 focus:text-black focus:outline-none uppercase">
+                        class="form-input w-full border-4 border-black dark:border-white p-3 font-bold text-sm bg-white dark:bg-slate-800 text-black dark:text-white focus:outline-none uppercase">
                 </div>
 
                 <div>
                     <label for="email" class="block font-black text-xs uppercase tracking-wider mb-1">Email</label>
                     <input id="email" type="email" placeholder="ENTER YOUR EMAIL" required
-                        class="w-full border-4 border-black dark:border-white p-3 font-bold text-sm bg-white dark:bg-slate-800 text-black dark:text-white focus:bg-yellow-400 focus:text-black focus:outline-none uppercase">
+                        class="form-input w-full border-4 border-black dark:border-white p-3 font-bold text-sm bg-white dark:bg-slate-800 text-black dark:text-white focus:outline-none uppercase">
                 </div>
 
                 <div>
                     <label for="message" class="block font-black text-xs uppercase tracking-wider mb-1">Message</label>
                     <textarea id="message" rows="3" placeholder="YOUR MESSAGE..." required
-                        class="w-full border-4 border-black dark:border-white p-3 font-bold text-sm bg-white dark:bg-slate-800 text-black dark:text-white focus:bg-yellow-400 focus:text-black focus:outline-none uppercase"></textarea>
+                        class="form-input w-full border-4 border-black dark:border-white p-3 font-bold text-sm bg-white dark:bg-slate-800 text-black dark:text-white focus:outline-none uppercase"></textarea>
                 </div>
 
                 <button type="submit" class="btn-primary w-full mt-2">
@@ -130,6 +126,35 @@
 
     </main>
 
+    <section id="physics" class="max-w-6xl mx-auto px-6 mb-12">
+        <div class="bg-white dark:bg-slate-900 border-4 border-black dark:border-white p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_0px_rgba(255,255,255,1)]">
+            <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-5">
+                <div>
+                    <p class="font-black text-xs uppercase tracking-widest text-red-600 dark:text-yellow-400">Interactive experiment</p>
+                    <h2 class="text-3xl font-black uppercase tracking-tight">2D Physics Playground</h2>
+                    <p class="font-bold text-sm mt-1">Tap or click inside the box to drop a ball. Watch them bounce and collide.</p>
+                </div>
+                <p class="font-black uppercase text-sm" aria-live="polite">Balls: <span id="ball-count">0</span></p>
+            </div>
+
+            <canvas id="physics-canvas" class="block w-full h-72 sm:h-96 border-4 border-black dark:border-white bg-slate-100 dark:bg-slate-800 touch-none cursor-crosshair"
+                aria-label="Interactive 2D physics simulation. Click or tap to add a bouncing ball." tabindex="0"></canvas>
+
+            <div class="flex flex-col sm:flex-row sm:items-center gap-4 mt-5">
+                <div class="flex gap-3">
+                    <button id="physics-toggle" class="btn-primary" type="button" aria-pressed="false">Pause</button>
+                    <button id="physics-add" class="btn-secondary" type="button">Drop a ball</button>
+                    <button id="physics-reset" class="btn-accent" type="button">Reset</button>
+                </div>
+                <label for="gravity-control" class="flex-1 font-black text-xs uppercase tracking-wider">
+                    Gravity <span id="gravity-value">0.65</span>
+                    <input id="gravity-control" class="block w-full mt-2 accent-red-600" type="range" min="0" max="1.4" step="0.05" value="0.65">
+                </label>
+            </div>
+            <p id="physics-status" class="sr-only" aria-live="polite"></p>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="max-w-6xl mx-auto my-8 px-6">
         <div class="bg-white dark:bg-slate-900 border-4 border-black dark:border-white p-4 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] dark:shadow-[6px_6px_0px_0px_rgba(255,255,255,1)] text-center">
@@ -139,12 +164,230 @@
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
     <script>
+        console.log("GSAP Version: ", gsap.version);
+
+        // Timeline Initialization
+        const tl = gsap.timeline({ defaults: { duration: 0.100,ease: "power2.out" } });
+
+        tl.from("h1", {
+            x: -200,
+            duration: 1.5,
+            opacity: 0,
+            ease: "back.out(1.7)"
+        })
+        .from("nav *", {
+            y: -20,
+            opacity: 0,
+            stagger: 0.15,
+            ease: "power2.out"
+        }, "-=0.3")
+        .from("main section", {
+            y: 50,
+            opacity: 0,
+            stagger: 0.25,
+            ease: "power2.out"
+        }, "-=0.3");
+
+        // Replay Button Handler
+        const replayButton = document.getElementById("Replay");
+        replayButton.addEventListener("click", () => {
+            tl.restart();
+        });
+
+        // Toggle Dark Mode Button + GSAP Rotate Animation
         const toggleButton = document.getElementById("Toggle");
         const html = document.querySelector("html");
+        let rotationAngle = 0; // Initial rotation angle
+
         toggleButton.addEventListener("click", () => {
             html.classList.toggle("dark");
+
+            // Spin 360 degrees on click
+            rotationAngle += 360;
+            gsap.to(toggleButton, {
+                rotation: rotationAngle,
+                duration: 0.6,
+                ease: "back.out(1.7)"
+
+               
+            });
         });
+
+
+    </script>
+
+    <script>
+        (() => {
+            const canvas = document.getElementById("physics-canvas");
+            const context = canvas.getContext("2d");
+            const countLabel = document.getElementById("ball-count");
+            const statusLabel = document.getElementById("physics-status");
+            const pauseButton = document.getElementById("physics-toggle");
+            const gravityControl = document.getElementById("gravity-control");
+            const gravityValue = document.getElementById("gravity-value");
+            const colors = ["#ef4444", "#facc15", "#3b82f6", "#22c55e", "#a855f7"];
+            const maxBalls = 60;
+            const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+            let width = 0;
+            let height = 0;
+            let balls = [];
+            let paused = reducedMotion;
+            let previousTime = 0;
+            let nextColor = 0;
+
+            function updateCount() {
+                countLabel.textContent = balls.length;
+            }
+
+            function resizeCanvas() {
+                const bounds = canvas.getBoundingClientRect();
+                const pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
+                width = bounds.width;
+                height = bounds.height;
+                canvas.width = Math.round(width * pixelRatio);
+                canvas.height = Math.round(height * pixelRatio);
+                context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+
+                balls.forEach((ball) => {
+                    ball.x = Math.max(ball.radius, Math.min(width - ball.radius, ball.x));
+                    ball.y = Math.max(ball.radius, Math.min(height - ball.radius, ball.y));
+                });
+                draw();
+            }
+
+            function addBall(x = width * (0.2 + Math.random() * 0.6), y = 30) {
+                if (balls.length >= maxBalls) {
+                    statusLabel.textContent = `The playground is full. Reset to add more balls.`;
+                    return;
+                }
+
+                const radius = 12 + Math.random() * 12;
+                balls.push({
+                    x: Math.max(radius, Math.min(width - radius, x)),
+                    y: Math.max(radius, Math.min(height - radius, y)),
+                    vx: (Math.random() - 0.5) * 180,
+                    vy: -Math.random() * 50,
+                    radius,
+                    color: colors[nextColor++ % colors.length]
+                });
+                updateCount();
+                statusLabel.textContent = `Ball added. ${balls.length} balls in the playground.`;
+            }
+
+            function resolveCollisions() {
+                for (let i = 0; i < balls.length; i++) {
+                    for (let j = i + 1; j < balls.length; j++) {
+                        const first = balls[i];
+                        const second = balls[j];
+                        const dx = second.x - first.x;
+                        const dy = second.y - first.y;
+                        const distance = Math.hypot(dx, dy);
+                        const minDistance = first.radius + second.radius;
+
+                        if (distance === 0 || distance >= minDistance) continue;
+
+                        const nx = dx / distance;
+                        const ny = dy / distance;
+                        const overlap = minDistance - distance;
+                        first.x -= nx * overlap * 0.5;
+                        first.y -= ny * overlap * 0.5;
+                        second.x += nx * overlap * 0.5;
+                        second.y += ny * overlap * 0.5;
+
+                        const relativeVelocity = (second.vx - first.vx) * nx + (second.vy - first.vy) * ny;
+                        if (relativeVelocity < 0) {
+                            const impulse = -(1 + 0.86) * relativeVelocity * 0.5;
+                            first.vx -= impulse * nx;
+                            first.vy -= impulse * ny;
+                            second.vx += impulse * nx;
+                            second.vy += impulse * ny;
+                        }
+                    }
+                }
+            }
+
+            function draw() {
+                context.clearRect(0, 0, width, height);
+                balls.forEach((ball) => {
+                    context.beginPath();
+                    context.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2);
+                    context.fillStyle = ball.color;
+                    context.fill();
+                    context.lineWidth = 3;
+                    context.strokeStyle = document.documentElement.classList.contains("dark") ? "#fff" : "#000";
+                    context.stroke();
+                });
+            }
+
+            function frame(time) {
+                const delta = Math.min((time - (previousTime || time)) / 1000, 1 / 30);
+                previousTime = time;
+
+                if (!paused) {
+                    const gravity = Number(gravityControl.value) * 1000;
+                    balls.forEach((ball) => {
+                        ball.vy += gravity * delta;
+                        ball.x += ball.vx * delta;
+                        ball.y += ball.vy * delta;
+
+                        if (ball.x - ball.radius < 0) {
+                            ball.x = ball.radius;
+                            ball.vx = Math.abs(ball.vx) * 0.86;
+                        } else if (ball.x + ball.radius > width) {
+                            ball.x = width - ball.radius;
+                            ball.vx = -Math.abs(ball.vx) * 0.86;
+                        }
+
+                        if (ball.y + ball.radius > height) {
+                            ball.y = height - ball.radius;
+                            ball.vy = -Math.abs(ball.vy) * 0.78;
+                            ball.vx *= 0.985;
+                            if (Math.abs(ball.vy) < 18) ball.vy = 0;
+                        } else if (ball.y - ball.radius < 0) {
+                            ball.y = ball.radius;
+                            ball.vy = Math.abs(ball.vy) * 0.86;
+                        }
+                    });
+                    resolveCollisions();
+                }
+
+                draw();
+                window.requestAnimationFrame(frame);
+            }
+
+            function setPaused(value) {
+                paused = value;
+                pauseButton.textContent = paused ? "Resume" : "Pause";
+                pauseButton.setAttribute("aria-pressed", String(paused));
+                statusLabel.textContent = paused ? "Simulation paused." : "Simulation running.";
+            }
+
+            canvas.addEventListener("pointerdown", (event) => {
+                const bounds = canvas.getBoundingClientRect();
+                addBall(event.clientX - bounds.left, event.clientY - bounds.top);
+            });
+            document.getElementById("physics-add").addEventListener("click", () => addBall());
+            document.getElementById("physics-reset").addEventListener("click", () => {
+                balls = [];
+                nextColor = 0;
+                for (let i = 0; i < 8; i++) addBall(width * (0.15 + Math.random() * 0.7), 25 + Math.random() * 80);
+                setPaused(false);
+                statusLabel.textContent = "Simulation reset.";
+            });
+            pauseButton.addEventListener("click", () => setPaused(!paused));
+            gravityControl.addEventListener("input", () => {
+                gravityValue.textContent = Number(gravityControl.value).toFixed(2);
+            });
+            window.addEventListener("resize", resizeCanvas);
+
+            pauseButton.textContent = paused ? "Resume" : "Pause";
+            pauseButton.setAttribute("aria-pressed", String(paused));
+            resizeCanvas();
+            for (let i = 0; i < 8; i++) addBall(width * (0.15 + Math.random() * 0.7), 25 + Math.random() * 80);
+            window.requestAnimationFrame(frame);
+        })();
     </script>
 
 </body>
